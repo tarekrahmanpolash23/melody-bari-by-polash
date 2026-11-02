@@ -1,0 +1,1657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Melody Bari — Every mood has a melody</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@700;900&family=Work+Sans:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --cream:#fff0dc;
+  --cream2:#ffdfb7;
+  --burg:#741b35;
+  --burg2:#511426;
+  --orange:#f0782d;
+  --gold:#ffc45c;
+  --sage:#89977a;
+  --pink:#eabeb6;
+  --ink:#2d201d;
+  --paper:#fff7eb;
+  --line:#dba78c;
+  --shadow:0 5px 0 rgba(81,20,38,.18);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  color:var(--ink);
+  font:16px/1.55 'Work Sans',sans-serif;
+  background:linear-gradient(135deg,#fff3df 0%,#ffe5c7 48%,#ffefdc 100%);
+  overflow-x:hidden;
+}
+
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  opacity:.18;
+  background-image:radial-gradient(#8c4b3a .7px,transparent .8px);
+  background-size:5px 5px;
+  z-index:-1;
+}
+
+h1,h2,h3{
+  font-family:Fraunces,Georgia,serif;
+  line-height:1.03;
+  margin:0;
+  color:var(--burg);
+}
+
+button,a,select{font:inherit}
+button{cursor:pointer}
+a{color:inherit;text-decoration:none}
+
+.wrap{
+  width:min(1420px,100%);
+  padding-inline:28px;
+  margin:auto;
+}
+
+/* Header */
+
+nav{
+  height:68px;
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:rgba(255,241,221,.96);
+  backdrop-filter:blur(10px);
+  border-bottom:2px solid var(--burg);
+}
+
+nav .wrap{
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  font:900 1.65rem Fraunces,serif;
+  color:var(--burg);
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.logo .note{font-family:serif;font-size:2rem}
+
+.navlinks{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.navlinks a{
+  font-weight:700;
+  padding:8px 16px;
+  border-radius:40px;
+}
+
+.navlinks a.active,
+.navlinks a:hover{
+  background:var(--burg);
+  color:white;
+}
+
+.navtools{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+
+.iconbtn{
+  background:none;
+  border:0;
+  font-size:1.35rem;
+  color:var(--burg);
+}
+
+#menu{
+  display:none;
+  border:2px solid var(--burg);
+  background:transparent;
+  border-radius:9px;
+  padding:5px 10px;
+}
+
+/* Hero */
+
+.hero{
+  position:relative;
+  padding:34px 0 24px;
+  isolation:isolate;
+}
+
+.hero:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  background:
+    radial-gradient(ellipse at 22% 50%,#ffca72 0 16%,transparent 34%),
+    radial-gradient(ellipse at 98% 76%,#ffbd53 0 13%,transparent 28%),
+    linear-gradient(180deg,transparent 88%,#f8cda1 100%);
+}
+
+.hero-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1.02fr) minmax(0,1fr);
+  align-items:center;
+  gap:36px;
+  min-height:330px;
+}
+
+.hero-copy{padding:15px 10px}
+
+.hero h1{
+  font-size:clamp(3.2rem,6vw,6rem);
+  letter-spacing:-.035em;
+  font-weight:900;
+}
+
+.hero-copy p{
+  max-width:510px;
+  font-weight:600;
+  font-size:1.18rem;
+  color:#4e2630;
+  margin:18px 0 25px;
+}
+
+.actions{
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  border:2px solid var(--ink);
+  border-radius:50px;
+  padding:12px 22px;
+  font-weight:700;
+  background:var(--cream);
+  box-shadow:0 4px 0 var(--ink);
+  transition:transform .15s,box-shadow .15s;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 6px 0 var(--ink);
+}
+
+.btn.primary{background:var(--orange);color:#251814}
+
+.btn.wine{
+  background:var(--burg);
+  color:white;
+  border-color:var(--burg2);
+  box-shadow:0 4px 0 var(--burg2);
+}
+
+.cassette-stage{
+  position:relative;
+  min-width:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:6px;
+}
+
+.cassette-art{
+  width:min(100%,650px);
+  filter:drop-shadow(8px 12px 0 rgba(81,20,38,.17));
+  transform:rotate(-4deg);
+  overflow:visible;
+}
+
+.cassette-name{
+  font:700 25px Caveat,cursive;
+  fill:var(--burg);
+  text-anchor:middle;
+}
+
+.cassette-artist{
+  font:600 15px 'Work Sans',sans-serif;
+  fill:#633342;
+  text-anchor:middle;
+}
+
+.cassette-label-line{stroke:#e6bba0;stroke-width:1.4}
+
+.tape-reel{
+  transform-box:fill-box;
+  transform-origin:center;
+  animation:reelspin 4.5s linear infinite;
+}
+
+.cassette-art.paused .tape-reel{animation-play-state:paused}
+
+@keyframes reelspin{to{transform:rotate(360deg)}}
+
+.floating-note{
+  position:absolute;
+  font-size:2.2rem;
+  color:var(--burg);
+  animation:float 4s ease-in-out infinite;
+}
+
+.n1{left:0;top:14%}
+.n2{right:1%;top:42%;animation-delay:1s}
+.n3{left:8%;bottom:0;animation-delay:2s}
+
+@keyframes float{50%{transform:translateY(-10px) rotate(9deg)}}
+
+/* Quick category ribbon */
+
+.quick-ribbon{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:15px;
+  padding:10px 0 24px;
+}
+
+.quick-card{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  min-height:108px;
+  padding:16px 18px;
+  border:2px solid #e0b69b;
+  border-radius:23px;
+  background:rgba(255,248,235,.92);
+  box-shadow:var(--shadow);
+}
+
+.quick-icon{font-size:2.45rem;flex:none}
+
+.quick-card h3{
+  font-size:1.13rem;
+  color:var(--burg);
+  margin-bottom:5px;
+}
+
+.quick-card p{font-size:.9rem;margin:0}
+
+.quick-arrow{
+  margin-left:auto;
+  align-self:flex-end;
+  border-radius:50%;
+  background:var(--burg);
+  color:white;
+  width:31px;
+  height:31px;
+  display:grid;
+  place-items:center;
+  font-size:1.15rem;
+  flex:none;
+}
+
+/* Mood section */
+
+section{padding:20px 0 30px}
+
+.section-shell{
+  border:2px solid #e4b79b;
+  border-radius:26px;
+  background:rgba(255,248,236,.87);
+  overflow:hidden;
+  box-shadow:var(--shadow);
+}
+
+.section-head{padding:20px 24px 12px}
+
+.section-head h2{font-size:clamp(1.8rem,3.2vw,2.55rem)}
+
+.section-head p{
+  margin:6px 0 0;
+  color:#603f3b;
+}
+
+.mood-layout{
+  display:grid;
+  grid-template-columns:230px 1fr;
+  gap:16px;
+  align-items:center;
+  padding:8px 20px 20px;
+}
+
+.mood-intro h2{font-size:2rem}
+.mood-intro p{margin:9px 0}
+
+.mood-grid{
+  display:grid;
+  grid-template-columns:repeat(6,minmax(0,1fr));
+  gap:12px;
+}
+
+.mood-card{
+  min-height:130px;
+  border:2px solid rgba(81,20,38,.25);
+  border-radius:18px;
+  padding:12px 8px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#2e201d;
+  box-shadow:0 4px 0 rgba(81,20,38,.18);
+  font-weight:700;
+}
+
+.mood-card .emoji{font-size:2rem;margin-bottom:4px}
+.mood-card small{font-weight:500;margin-top:4px}
+
+.mood-card .round-arrow{
+  align-self:flex-end;
+  background:var(--burg);
+  color:white;
+  border-radius:50%;
+  width:26px;
+  height:26px;
+  display:grid;
+  place-items:center;
+  margin-top:4px;
+}
+
+.mood-card:nth-child(1){background:var(--burg);color:#fff7e9}
+.mood-card:nth-child(2){background:var(--sage);color:white}
+.mood-card:nth-child(3){background:var(--orange)}
+.mood-card:nth-child(4){background:var(--pink)}
+.mood-card:nth-child(5){background:#8b987b;color:white}
+.mood-card:nth-child(6){background:var(--gold)}
+
+/* Activity Filtering */
+
+.activity-section{
+  margin-top:20px;
+}
+
+.activity-grid{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:12px;
+  padding:8px 20px 20px;
+}
+
+.activity-card{
+  min-height:120px;
+  border:2px solid #e3b39b;
+  border-radius:18px;
+  padding:14px 8px;
+  background:var(--sage);
+  color:var(--ink);
+  font-weight:700;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+  box-shadow:0 4px 0 rgba(81,20,38,.15);
+  transition:transform .15s;
+}
+
+.activity-card:nth-child(2){background:var(--gold)}
+.activity-card:nth-child(3){background:var(--orange)}
+.activity-card:nth-child(4){background:var(--pink)}
+.activity-card:nth-child(5){background:#d5dfc5}
+
+.activity-card .emoji{font-size:2rem}
+.activity-card small{font-weight:500}
+.activity-card:hover{transform:translateY(-3px)}
+
+/* Decade bar */
+
+.era-band{
+  margin:0 0 12px;
+  background:linear-gradient(100deg,var(--burg2),var(--burg),#87213e);
+  border:2px solid #a74a55;
+  border-radius:25px;
+  padding:16px 25px;
+  color:#fff5e5;
+  display:grid;
+  grid-template-columns:minmax(180px,.8fr) 1.6fr;
+  gap:22px;
+  align-items:center;
+  box-shadow:var(--shadow);
+}
+
+.era-title h2{
+  font-size:clamp(1.7rem,3vw,2.6rem);
+  color:#fff1d9;
+}
+
+.era-title p{margin:0;font-weight:600}
+.equalizer{font-size:1.6rem;color:var(--orange);letter-spacing:2px}
+
+.era-list{
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.era-pill{
+  background:var(--cream);
+  border:2px solid #e9c8a7;
+  border-radius:40px;
+  padding:9px 18px;
+  font-weight:700;
+  min-width:95px;
+}
+
+.era-pill.selected,
+.era-pill:hover{
+  background:var(--orange);
+  color:var(--ink);
+  border-color:#ffe3ba;
+}
+
+/* Lower cards */
+
+.lower-grid{
+  display:grid;
+  grid-template-columns:1.35fr 1fr;
+  gap:16px;
+  padding:10px 0 25px;
+}
+
+.moments-panel,
+.surprise-panel,
+.language-panel{
+  border:2px solid #e2b499;
+  border-radius:25px;
+  background:rgba(255,248,236,.9);
+  overflow:hidden;
+  box-shadow:var(--shadow);
+}
+
+.moments-panel .section-head{padding-bottom:7px}
+
+.moment-grid{
+  display:grid;
+  grid-template-columns:repeat(6,minmax(0,1fr));
+  gap:9px;
+  padding:5px 18px 18px;
+}
+
+.moment-card{
+  border:2px solid #e3b39b;
+  border-radius:17px;
+  min-height:96px;
+  padding:10px 5px;
+  background:var(--sage);
+  text-align:center;
+  font-weight:700;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  line-height:1.25;
+}
+
+.moment-card:nth-child(2){background:var(--gold)}
+.moment-card:nth-child(3){background:var(--orange)}
+.moment-card:nth-child(4){background:var(--pink)}
+.moment-card:nth-child(5){background:#ffd17a}
+.moment-card:nth-child(6){background:#f5d7b5}
+
+.moment-card .emoji{font-size:1.6rem;margin-bottom:5px}
+
+.surprise-panel{
+  background:linear-gradient(125deg,var(--burg2),var(--burg));
+  color:#fff5e5;
+  border-color:#8f384d;
+  padding:24px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.surprise-panel h2{color:#fff3df;font-size:2rem}
+.surprise-panel p{margin:8px 0 15px}
+
+.surprise-controls{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.surprise-controls select{
+  min-width:0;
+  flex:1;
+  padding:10px;
+  border:2px solid var(--ink);
+  border-radius:11px;
+  background:var(--cream);
+  color:var(--ink);
+}
+
+.surprise-controls .btn{
+  width:100%;
+  margin-top:6px;
+  background:var(--orange);
+}
+
+/* Language + results */
+
+.language-panel{
+  padding:22px;
+  margin:8px 0 26px;
+}
+
+.language-panel h2{font-size:2rem}
+
+.language-grid{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:14px;
+}
+
+.lang-pill{
+  border:2px solid #dfb49b;
+  border-radius:40px;
+  background:#f5d9bb;
+  padding:8px 17px;
+  font-weight:700;
+}
+
+.lang-pill:nth-child(3n+1){background:#d5dfc5}
+.lang-pill:nth-child(3n+2){background:#f4c7b8}
+.lang-pill:hover{background:var(--orange)}
+
+.results{
+  padding:24px 0 45px;
+  scroll-margin-top:80px;
+}
+
+.results h2{font-size:2rem}
+
+.results-sub{
+  margin:6px 0 16px;
+  color:#65433d;
+}
+
+.songs{display:grid;gap:12px}
+
+.song{
+  display:flex;
+  align-items:center;
+  gap:13px;
+  padding:14px;
+  border:2px solid var(--ink);
+  border-radius:16px;
+  background:var(--paper);
+  flex-wrap:wrap;
+  box-shadow:0 3px 0 rgba(81,20,38,.12);
+}
+
+.disc{
+  height:44px;
+  width:44px;
+  border-radius:50%;
+  border:2px solid var(--ink);
+  background:radial-gradient(circle,var(--cream) 0 17%,var(--ink) 18% 100%);
+  flex:none;
+}
+
+.song-info{flex:1;min-width:150px}
+
+.song-info b{
+  display:block;
+  font:700 1.1rem Fraunces,serif;
+  color:var(--burg);
+}
+
+.song-info span{font-size:.86rem;color:#6b5049}
+
+.play-song{
+  border:2px solid var(--ink);
+  border-radius:50px;
+  padding:8px 16px;
+  background:var(--orange);
+  font-weight:700;
+}
+
+.msg{
+  padding:17px;
+  border:2px dashed var(--burg);
+  border-radius:15px;
+  background:var(--paper);
+}
+
+.msg.error{color:var(--burg)}
+
+.player{margin-top:15px}
+
+.player iframe{
+  display:block;
+  width:min(100%,760px);
+  aspect-ratio:16/9;
+  border:0;
+  border-radius:16px;
+  background:var(--ink);
+}
+
+.now-playing{
+  margin-top:16px;
+  border-radius:24px;
+  background:var(--burg);
+  color:#fff2dc;
+  padding:22px;
+  display:grid;
+  grid-template-columns:1fr minmax(240px,1.1fr);
+  gap:18px;
+  align-items:center;
+}
+
+.now-playing h2{color:#fff0d8}
+.now-playing .np-title{font:700 1.6rem Fraunces,serif}
+.now-playing .np-artist{color:#f2d7c0}
+
+.np-screen{
+  background:#f8dfbe;
+  border:3px solid var(--orange);
+  border-radius:15px;
+  padding:14px;
+  color:var(--burg);
+  font:700 1.1rem Caveat,cursive;
+  text-align:center;
+  min-height:75px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.np-screen small{
+  font:500 .8rem 'Work Sans';
+  color:#68414a;
+}
+
+footer{
+  border-top:2px solid var(--burg);
+  padding:25px 0 40px;
+  color:#5b3d37;
+  font-size:.9rem;
+}
+
+/* Responsive design */
+
+@media(max-width:1100px){
+  .mood-layout{grid-template-columns:1fr}
+  .mood-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .activity-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .moment-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .quick-ribbon{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .lower-grid{grid-template-columns:1fr}
+  .era-band{grid-template-columns:1fr}
+  .era-list{justify-content:flex-start}
+}
+
+@media(max-width:760px){
+  .wrap{padding-inline:16px}
+  nav{height:62px}
+  nav .wrap{height:62px}
+  .logo{font-size:1.35rem}
+  .navtools .iconbtn{display:none}
+  #menu{display:block}
+
+  .navlinks{
+    display:none;
+    position:absolute;
+    top:62px;
+    left:0;
+    right:0;
+    padding:12px;
+    background:var(--cream);
+    border-bottom:2px solid var(--burg);
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .navlinks.open{display:flex}
+  .navlinks a{text-align:center}
+
+  .hero{padding:20px 0 8px}
+  .hero-grid{grid-template-columns:1fr;gap:5px}
+  .cassette-stage{order:2}
+  .hero-copy{order:1;text-align:center;padding:12px 0}
+  .hero h1{font-size:clamp(2.7rem,12vw,4.2rem)}
+  .hero-copy p{margin:14px auto 20px;font-size:1rem}
+  .actions{justify-content:center}
+  .cassette-art{width:min(100%,520px)}
+
+  .quick-ribbon{grid-template-columns:1fr 1fr;gap:9px}
+  .quick-card{padding:12px;min-height:95px;gap:9px}
+  .quick-icon{font-size:1.8rem}
+  .quick-card h3{font-size:.95rem}
+  .quick-card p{font-size:.78rem}
+  .quick-arrow{width:25px;height:25px}
+
+  .mood-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .mood-card{min-height:115px}
+  .activity-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .era-band{padding:18px}
+  .era-list{gap:7px}
+  .era-pill{padding:8px 12px;min-width:auto}
+
+  .section-head{padding:18px 17px 10px}
+  .moment-grid{grid-template-columns:repeat(2,minmax(0,1fr));padding-inline:13px}
+  .surprise-panel{padding:20px}
+  .now-playing{grid-template-columns:1fr}
+  .language-panel{padding:17px}
+  .section-shell{border-radius:20px}
+}
+
+@media(max-width:420px){
+  .quick-ribbon{grid-template-columns:1fr}
+  .quick-card{min-height:82px}
+  .mood-grid{grid-template-columns:1fr 1fr;gap:8px}
+  .mood-card{padding:9px 5px}
+  .activity-grid{grid-template-columns:1fr 1fr;gap:8px}
+  .hero .btn{padding:10px 14px;font-size:.9rem}
+  .era-pill{font-size:.9rem}
+  .moment-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .tape-reel,.floating-note{animation:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#"><span class="note">♫</span> Melody Bari</a>
+
+    <div class="navlinks" id="navlinks">
+      <a class="active" href="#">Home</a>
+      <a href="#discover">Discover</a>
+      <a href="#time">Decades</a>
+      <a href="#activities">Activities</a>
+      <a href="#moments">Moments</a>
+    </div>
+
+    <div class="navtools">
+      <button class="iconbtn" aria-label="Search">⌕</button>
+      <button id="menu" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+  <header class="hero">
+    <div class="hero-grid">
+
+      <div class="hero-copy">
+        <h1>Every mood<br>has a melody.</h1>
+        <p>From timeless classics to the songs that define your moments. Find the music that feels like you.</p>
+
+        <div class="actions">
+          <a class="btn primary" href="#discover">♫ Explore music</a>
+          <button class="btn wine" id="go90">Back to the 90s ↗</button>
+        </div>
+      </div>
+
+      <div class="cassette-stage">
+        <span class="floating-note n1">♫</span>
+        <span class="floating-note n2">♪</span>
+        <span class="floating-note n3">♬</span>
+
+        <svg class="cassette-art" id="cassetteArt" viewBox="0 0 640 390" role="img" aria-label="Retro cassette tape">
+          <defs>
+            <linearGradient id="cassetteBody" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#f8a44f"/>
+              <stop offset="55%" stop-color="#f0782d"/>
+              <stop offset="100%" stop-color="#d95724"/>
+            </linearGradient>
+
+            <linearGradient id="cassetteLabel" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#fff0dc"/>
+              <stop offset="100%" stop-color="#f6d6b3"/>
+            </linearGradient>
+          </defs>
+
+          <g transform="translate(28 28)">
+            <rect x="0" y="0" width="584" height="330" rx="30" fill="#741b35" stroke="#511426" stroke-width="8"/>
+            <rect x="14" y="14" width="556" height="302" rx="23" fill="url(#cassetteBody)" stroke="#ffbd70" stroke-width="4"/>
+
+            <path d="M42 38 H542 Q552 38 552 48 V220 H32 V48 Q32 38 42 38Z" fill="url(#cassetteLabel)" stroke="#741b35" stroke-width="3"/>
+
+            <text x="292" y="85" class="cassette-name" id="cassetteSong">Melody Bari</text>
+            <text x="292" y="112" class="cassette-artist" id="cassetteArtist">Your music, your memories</text>
+
+            <line x1="58" y1="133" x2="526" y2="133" class="cassette-label-line"/>
+
+            <text x="292" y="158" text-anchor="middle" font-family="Work Sans,sans-serif" font-size="12" font-weight="700" fill="#741b35" letter-spacing="4" id="cassetteNowLabel">MELODY BARI</text>
+
+            <rect x="46" y="174" width="492" height="37" rx="8" fill="#741b35"/>
+            <rect x="58" y="181" width="468" height="23" rx="5" fill="#511426"/>
+
+            <g class="tape-reel">
+              <circle cx="178" cy="193" r="31" fill="#f5d9bb" stroke="#511426" stroke-width="5"/>
+              <circle cx="178" cy="193" r="20" fill="#f0782d" stroke="#741b35" stroke-width="3"/>
+              <circle cx="178" cy="193" r="8" fill="#fff0dc"/>
+              <path d="M178 173 V185 M198 193 H186 M178 213 V201 M158 193 H170" stroke="#741b35" stroke-width="4" stroke-linecap="round"/>
+            </g>
+
+            <g class="tape-reel">
+              <circle cx="402" cy="193" r="31" fill="#f5d9bb" stroke="#511426" stroke-width="5"/>
+              <circle cx="402" cy="193" r="20" fill="#f0782d" stroke="#741b35" stroke-width="3"/>
+              <circle cx="402" cy="193" r="8" fill="#fff0dc"/>
+              <path d="M402 173 V185 M422 193 H410 M402 213 V201 M382 193 H394" stroke="#741b35" stroke-width="4" stroke-linecap="round"/>
+            </g>
+
+            <path d="M70 236 H514 L476 291 H108Z" fill="#f5d9bb" stroke="#741b35" stroke-width="4"/>
+            <rect x="220" y="245" width="144" height="28" rx="6" fill="#741b35"/>
+
+            <text x="292" y="264" text-anchor="middle" font-family="Work Sans,sans-serif" font-size="12" font-weight="700" fill="#fff0dc" letter-spacing="2">SIDE A</text>
+
+            <circle cx="83" cy="285" r="7" fill="#741b35"/>
+            <circle cx="501" cy="285" r="7" fill="#741b35"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </header>
+
+  <div class="quick-ribbon">
+    <a class="quick-card" href="#discover">
+      <span class="quick-icon">🎧</span>
+      <div><h3>Find your mood</h3><p>Music that matches how you feel.</p></div>
+      <span class="quick-arrow">➜</span>
+    </a>
+
+    <a class="quick-card" href="#time">
+      <span class="quick-icon">📻</span>
+      <div><h3>Golden decades</h3><p>Travel through music history.</p></div>
+      <span class="quick-arrow">➜</span>
+    </a>
+
+    <a class="quick-card" href="#activities">
+      <span class="quick-icon">💻</span>
+      <div><h3>Music for activities</h3><p>Find music for what you do.</p></div>
+      <span class="quick-arrow">➜</span>
+    </a>
+
+    <a class="quick-card" href="#surprisePanel">
+      <span class="quick-icon">🎁</span>
+      <div><h3>Surprise me</h3><p>Let the music choose for you!</p></div>
+      <span class="quick-arrow">➜</span>
+    </a>
+  </div>
+</div>
+
+<!-- Mood Filtering -->
+
+<section id="discover">
+  <div class="wrap section-shell">
+    <div class="mood-layout">
+
+      <div class="mood-intro">
+        <h2>Your mood,<br>your music</h2>
+        <p>Pick a mood and find your perfect vibe.</p>
+      </div>
+
+      <div class="mood-grid" id="moods"></div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Activity Filtering -->
+
+<section id="activities" class="activity-section">
+  <div class="wrap section-shell">
+
+    <div class="section-head">
+      <h2>Music for your activity</h2>
+      <p>Choose what you are doing and find your soundtrack.</p>
+    </div>
+
+    <div class="activity-grid" id="activitiesGrid"></div>
+
+  </div>
+</section>
+
+<!-- Era Filtering -->
+
+<div class="wrap" id="time">
+  <div class="era-band">
+
+    <div class="era-title">
+      <div class="equalizer">▂▅▇▃▆▂</div>
+      <h2>Back to the 90s</h2>
+      <p>Relive the golden era of music.</p>
+    </div>
+
+    <div class="era-list" id="eras"></div>
+
+  </div>
+</div>
+
+<!-- Moments and Surprise -->
+
+<div class="wrap lower-grid">
+
+  <section class="moments-panel" id="moments">
+    <div class="section-head">
+      <h2>Soundtrack for every moment</h2>
+      <p>These collections match your songs' activity and mood tags.</p>
+    </div>
+
+    <div class="moment-grid" id="momentCards"></div>
+  </section>
+
+  <section class="surprise-panel" id="surprisePanel">
+    <h2>Surprise me</h2>
+    <p>One random song from the catalog.<br>Add a filter if you like.</p>
+
+    <div class="surprise-controls">
+      <select id="sMood" aria-label="Filter by mood">
+        <option value="">Any mood</option>
+      </select>
+
+      <select id="sLang" aria-label="Filter by language">
+        <option value="">Any language</option>
+      </select>
+
+      <button class="btn" id="surprise">▶ Surprise me</button>
+    </div>
+  </section>
+
+</div>
+
+<!-- Language and Results -->
+
+<div class="wrap">
+
+  <section class="language-panel">
+    <h2>Explore by language</h2>
+    <p class="results-sub">Find the songs you love in your language.</p>
+    <div class="language-grid" id="langs"></div>
+  </section>
+
+  <section class="results" id="results">
+    <h2 id="rTitle">Your song collection</h2>
+    <p class="results-sub" id="resultSub">Choose a mood, activity, decade, moment or language to explore songs.</p>
+
+    <div id="rBody">
+      <div class="msg">Your music collection will appear here.</div>
+    </div>
+  </section>
+
+  <!-- Now Playing -->
+
+  <section class="now-playing" id="nowPlaying">
+
+    <div>
+      <h2>Now Playing</h2>
+      <p class="np-title" id="nowPlayingInfo">Select a song to begin</p>
+      <p class="np-artist" id="nowPlayingArtist">Melody Bari • Your personal soundtrack</p>
+    </div>
+
+    <div class="np-screen">
+      <span id="npCassetteTitle">♫ Waiting for your song ♫</span>
+      <small id="npCassetteArtist">SIDE A • MELODY BARI</small>
+    </div>
+
+    <div class="player" id="mainPlayer" style="grid-column:1/-1">
+      <div class="msg">Select a song with a playback link to load the player.</div>
+    </div>
+
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">♫ Melody Bari — music for every mood, moment, and memory.</div>
+</footer>
+
+<script>
+'use strict';
+
+/* Backend API */
+
+const API = 'http://localhost:5000';
+const EP = { songs: '/songs' };
+
+/* Helper functions */
+
+const $ = s => document.querySelector(s);
+
+const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({
+  '&': '&amp;',
+  '<': '&lt;',
+  '>': '&gt;',
+  '"': '&quot;',
+  "'": '&#39;'
+}[c]));
+
+const low = v => String(v ?? '').toLowerCase();
+
+let SONGS = [];
+let last = null;
+let currentSong = null;
+
+/* Mood categories */
+
+const MOODS = [
+  ['Romantic', '♥'],
+  ['Nostalgic', '🍃'],
+  ['Peaceful', '☻'],
+  ['Happy', '☀'],
+  ['Sad', '☁'],
+  ['Energetic', 'ϟ']
+];
+
+/* Activity categories */
+
+const ACTIVITIES = [
+  ['Coding', '💻'],
+  ['Driving', '🚗'],
+  ['Studying', '📚'],
+  ['Gym', '🏋️'],
+  ['Relaxing', '🎧']
+];
+
+/* Era categories */
+
+const ERAS = [
+  ['1970s', 1970],
+  ['1980s', 1980],
+  ['1990s', 1990],
+  ['2000s', 2000],
+  ['2010s', 2010],
+  ['2020s', 2020]
+];
+
+/* Moment categories */
+
+const MOMENTS = [
+  ['Night Drive', '🚗', { act: ['driv'] }],
+  ['Coding Session', '💻', { act: ['cod'] }],
+  ['Study Focus', '📖', { act: ['stud'] }],
+  ['Rainy Evening', '🌧️', { mood: ['sad', 'nostalgic', 'peaceful'] }],
+  ['Late-Night Thoughts', '🌙', { mood: ['sad', 'dreamy', 'heartbroken', 'nostalgic'] }],
+  ['Sunday Morning', '☀️', { mood: ['peaceful', 'relaxed', 'happy'] }]
+];
+
+/* Era checking */
+
+function inDecade(song, start) {
+  const year = parseInt(song.year, 10);
+
+  if (Number.isFinite(year) && year > 0) {
+    return year >= start && year < start + 10;
+  }
+
+  return low(song.era).includes(String(start));
+}
+
+/* Check multiple values */
+
+const hasAny = (value, keys) =>
+  keys.some(key => low(value).includes(key));
+
+/* Count songs */
+
+const count = filter =>
+  SONGS.filter(filter).length;
+
+/* Build all category cards */
+
+function buildCards() {
+
+  /* Mood cards */
+
+  $('#moods').innerHTML = MOODS.map(([mood, emoji]) => {
+
+    const total = count(s =>
+      hasAny(s.mood, [low(mood)])
+    );
+
+    return `
+      <button class="mood-card"
+        data-k="mood"
+        data-v="${esc(mood)}">
+
+        <span class="emoji">${emoji}</span>
+
+        ${esc(mood)}
+
+        <small>${total} songs</small>
+
+        <span class="round-arrow">➜</span>
+
+      </button>
+    `;
+
+  }).join('');
+
+  /* Activity cards */
+
+  $('#activitiesGrid').innerHTML = ACTIVITIES.map(([activity, emoji]) => {
+
+    const total = count(s =>
+      low(s.activity).trim() === low(activity)
+    );
+
+    return `
+      <button class="activity-card"
+        data-k="activity"
+        data-v="${esc(activity)}">
+
+        <span class="emoji">${emoji}</span>
+
+        ${esc(activity)}
+
+        <small>${total} songs</small>
+
+      </button>
+    `;
+
+  }).join('');
+
+  /* Era cards */
+
+  $('#eras').innerHTML = ERAS.map(([label, year]) => `
+    <button class="era-pill ${year === 1990 ? 'selected' : ''}"
+      data-k="era"
+      data-v="${year}">
+
+      ${label}
+
+    </button>
+  `).join('');
+
+  /* Moment cards */
+
+  $('#momentCards').innerHTML = MOMENTS.map(([label, emoji], i) => `
+    <button class="moment-card"
+      data-k="moment"
+      data-v="${i}">
+
+      <span class="emoji">${emoji}</span>
+
+      ${esc(label)}
+
+    </button>
+  `).join('');
+
+  /* Language list */
+
+  const languages = [
+    ...new Set(SONGS.map(s => s.language).filter(Boolean))
+  ].sort();
+
+  $('#langs').innerHTML = languages.length
+    ? languages.map(lang => `
+        <button class="lang-pill"
+          data-k="lang"
+          data-v="${esc(lang)}">
+
+          ${esc(lang)}
+
+        </button>
+      `).join('')
+    : '<div class="msg">No language tags yet. Add them to your songs to see them here.</div>';
+
+  /* Surprise mood options */
+
+  $('#sMood').innerHTML =
+    '<option value="">Any mood</option>' +
+    [...new Set(SONGS.map(s => s.mood).filter(Boolean))]
+      .sort()
+      .map(m => `<option value="${esc(m)}">${esc(m)}</option>`)
+      .join('');
+
+  /* Surprise language options */
+
+  $('#sLang').innerHTML =
+    '<option value="">Any language</option>' +
+    languages.map(l =>
+      `<option value="${esc(l)}">${esc(l)}</option>`
+    ).join('');
+}
+
+/* Song card HTML */
+
+function songHTML(song) {
+
+  const meta = [
+    song.artist,
+    song.year,
+    song.language,
+    song.mood
+  ].filter(Boolean).map(esc).join(' • ');
+
+  const id = String(song.external_music_id || '').trim();
+
+  const valid = /^[a-zA-Z0-9_-]{11}$/.test(id);
+
+  return `
+    <article class="song">
+
+      <div class="disc"></div>
+
+      <div class="song-info">
+        <b>${esc(song.title || 'Untitled')}</b>
+        <span>${meta || 'No details added'}</span>
+      </div>
+
+      ${
+        valid
+          ? `<button class="play-song" data-song-id="${esc(song.id)}">▶ Play</button>`
+          : '<span class="results-sub">No playback link</span>'
+      }
+
+    </article>
+  `;
+}
+
+/* Update cassette */
+
+function updateCassette(song) {
+
+  const title = song?.title || 'Choose a song';
+  const artist = song?.artist || 'Your music, your memories';
+
+  $('#cassetteSong').textContent =
+    title.length > 27 ? title.slice(0, 25) + '…' : title;
+
+  $('#cassetteArtist').textContent =
+    artist.length > 35 ? artist.slice(0, 33) + '…' : artist;
+
+  $('#nowPlayingInfo').textContent = title;
+
+  $('#nowPlayingArtist').textContent =
+    artist + ' • Melody Bari';
+
+  $('#npCassetteTitle').textContent =
+    '♫ ' + title + ' ♫';
+
+  $('#npCassetteArtist').textContent =
+    (artist + ' • SIDE A').toUpperCase();
+
+  $('#cassetteNowLabel').textContent =
+    song ? 'NOW PLAYING' : 'MELODY BARI';
+}
+
+/* Play song */
+
+function playSong(song) {
+
+  currentSong = song;
+
+  updateCassette(song);
+
+  const id = String(song.external_music_id || '').trim();
+
+  if (!/^[a-zA-Z0-9_-]{11}$/.test(id)) {
+
+    $('#mainPlayer').innerHTML = `
+      <div class="msg">
+        This song does not have a valid YouTube video ID yet.
+      </div>
+    `;
+
+    $('#nowPlaying').scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+
+    return;
+  }
+
+  $('#mainPlayer').innerHTML = `
+    <div class="player">
+
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/${esc(id)}?autoplay=1"
+        title="${esc(song.title)}"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+
+    </div>
+  `;
+
+  $('#cassetteArt').classList.remove('paused');
+
+  $('#nowPlaying').scrollIntoView({
+    behavior: 'smooth',
+    block: 'start'
+  });
+}
+
+/* Show results */
+
+function show(title, list, empty) {
+
+  $('#rTitle').textContent = title;
+
+  $('#resultSub').textContent = list.length
+    ? `${list.length} song${list.length === 1 ? '' : 's'} in this collection.`
+    : 'Try another category to explore the catalog.';
+
+  $('#rBody').innerHTML = list.length
+    ? `<div class="songs">${list.map(songHTML).join('')}</div>`
+    : `<div class="msg">${esc(empty)}</div>`;
+
+  $('#results').scrollIntoView({
+    behavior: 'smooth',
+    block: 'start'
+  });
+}
+
+/* All filtering functions */
+
+function pick(key, value) {
+
+  /* Activity Filtering */
+
+  if (key === 'activity') {
+
+    return show(
+      value + ' songs',
+
+      SONGS.filter(s =>
+        low(s.activity).trim() === low(value)
+      ),
+
+      `No ${value} songs found in your catalog yet.`
+    );
+  }
+
+  /* Mood Filtering */
+
+  if (key === 'mood') {
+
+    return show(
+      value + ' songs',
+
+      SONGS.filter(s =>
+        hasAny(s.mood, [low(value)])
+      ),
+
+      `No ${value.toLowerCase()} songs found in your catalog yet.`
+    );
+  }
+
+  /* Era Filtering */
+
+  if (key === 'era') {
+
+    const year = +value;
+
+    document.querySelectorAll('.era-pill').forEach(b => {
+
+      b.classList.toggle(
+        'selected',
+        +b.dataset.v === year
+      );
+
+    });
+
+    return show(
+      year + 's songs',
+
+      SONGS.filter(s =>
+        inDecade(s, year)
+      ),
+
+      `No songs from the ${year}s yet.`
+    );
+  }
+
+  /* Language Filtering */
+
+  if (key === 'lang') {
+
+    return show(
+      value + ' songs',
+
+      SONGS.filter(s =>
+        s.language === value
+      ),
+
+      'No songs found for this language.'
+    );
+  }
+
+  /* Moment Filtering */
+
+  if (key === 'moment') {
+
+    const [title, emoji, filters] = MOMENTS[+value];
+
+    return show(
+      title,
+
+      SONGS.filter(s =>
+        (filters.act && hasAny(s.activity, filters.act)) ||
+        (filters.mood && hasAny(s.mood, filters.mood))
+      ),
+
+      `Nothing tagged for “${title}” yet.`
+    );
+  }
+}
+
+/* Click event listener */
+
+document.addEventListener('click', e => {
+
+  /* Play button */
+
+  const play = e.target.closest('.play-song');
+
+  if (play) {
+
+    const song = SONGS.find(
+      s => String(s.id) === play.dataset.songId
+    );
+
+    if (song) playSong(song);
+
+    return;
+  }
+
+  /* Category card */
+
+  const card = e.target.closest('[data-k]');
+
+  if (card) {
+
+    pick(
+      card.dataset.k,
+      card.dataset.v
+    );
+
+  }
+});
+
+/* Back to 90s button */
+
+$('#go90').onclick = () => {
+
+  document.querySelector('#time').scrollIntoView({
+    behavior: 'smooth'
+  });
+
+  pick('era', 1990);
+};
+
+/* Surprise me */
+
+$('#surprise').onclick = () => {
+
+  const mood = $('#sMood').value;
+  const lang = $('#sLang').value;
+
+  const pool = SONGS.filter(s =>
+
+    (!mood || s.mood === mood) &&
+    (!lang || s.language === lang)
+
+  );
+
+  if (!pool.length) {
+
+    return show(
+      'Surprise me',
+      [],
+      'No songs match these filters. Try fewer filters.'
+    );
+  }
+
+  const options = pool.length > 1
+    ? pool.filter(s => s.id !== last)
+    : pool;
+
+  const song =
+    options[Math.floor(Math.random() * options.length)];
+
+  last = song.id;
+
+  show('Your surprise', [song]);
+
+  updateCassette(song);
+};
+
+/* Mobile menu */
+
+$('#menu').onclick = () => {
+
+  const open = $('#navlinks').classList.toggle('open');
+
+  $('#menu').setAttribute(
+    'aria-expanded',
+    String(open)
+  );
+};
+
+$('#navlinks').addEventListener('click', e => {
+
+  if (e.target.closest('a')) {
+
+    $('#navlinks').classList.remove('open');
+
+    $('#menu').setAttribute(
+      'aria-expanded',
+      'false'
+    );
+
+  }
+});
+
+/* Backend API request */
+
+async function api(path) {
+
+  const response = await fetch(API + path);
+
+  let result;
+
+  try {
+
+    result = await response.json();
+
+  } catch {
+
+    throw new Error('Server returned an invalid response.');
+
+  }
+
+  if (!response.ok) {
+
+    throw new Error(
+      result?.message || `Request failed (${response.status})`
+    );
+
+  }
+
+  return result;
+}
+
+/* Convert API response to array */
+
+function toList(result) {
+
+  if (Array.isArray(result)) return result;
+
+  return result?.data || result?.songs || [];
+}
+
+/* Load songs from backend */
+
+(async function init() {
+
+  try {
+
+    SONGS = toList(await api(EP.songs));
+
+    buildCards();
+
+    if (!SONGS.length) {
+
+      $('#rBody').innerHTML = `
+        <div class="msg">
+          Your catalog is empty. Add songs to get started.
+        </div>
+      `;
+
+    }
+
+  } catch (error) {
+
+    buildCards();
+
+    $('#rBody').innerHTML = `
+      <div class="msg error">
+
+        Cannot load songs from ${esc(API)}.
+
+        Make sure your backend is running.
+
+        <br><br>
+
+        Error: ${esc(error.message)}
+
+      </div>
+    `;
+
+  }
+
+})();
+
+</script>
+
+</body>
+</html>
