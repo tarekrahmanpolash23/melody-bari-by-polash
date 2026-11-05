@@ -1037,7 +1037,7 @@ footer{
 
 /* Backend API */
 
-const API = 'http://localhost:5000';
+const API = '';
 const EP = { songs: '/songs' };
 
 /* Helper functions */
@@ -1127,8 +1127,6 @@ const count = filter =>
 
 function buildCards() {
 
-  /* Mood cards */
-
   $('#moods').innerHTML = MOODS.map(([mood, emoji]) => {
 
     const total = count(s =>
@@ -1153,8 +1151,6 @@ function buildCards() {
 
   }).join('');
 
-  /* Activity cards */
-
   $('#activitiesGrid').innerHTML = ACTIVITIES.map(([activity, emoji]) => {
 
     const total = count(s =>
@@ -1177,8 +1173,6 @@ function buildCards() {
 
   }).join('');
 
-  /* Era cards */
-
   $('#eras').innerHTML = ERAS.map(([label, year]) => `
     <button class="era-pill ${year === 1990 ? 'selected' : ''}"
       data-k="era"
@@ -1188,8 +1182,6 @@ function buildCards() {
 
     </button>
   `).join('');
-
-  /* Moment cards */
 
   $('#momentCards').innerHTML = MOMENTS.map(([label, emoji], i) => `
     <button class="moment-card"
@@ -1202,8 +1194,6 @@ function buildCards() {
 
     </button>
   `).join('');
-
-  /* Language list */
 
   const languages = [
     ...new Set(SONGS.map(s => s.language).filter(Boolean))
@@ -1221,16 +1211,12 @@ function buildCards() {
       `).join('')
     : '<div class="msg">No language tags yet. Add them to your songs to see them here.</div>';
 
-  /* Surprise mood options */
-
   $('#sMood').innerHTML =
     '<option value="">Any mood</option>' +
     [...new Set(SONGS.map(s => s.mood).filter(Boolean))]
       .sort()
       .map(m => `<option value="${esc(m)}">${esc(m)}</option>`)
       .join('');
-
-  /* Surprise language options */
 
   $('#sLang').innerHTML =
     '<option value="">Any language</option>' +
@@ -1374,8 +1360,6 @@ function show(title, list, empty) {
 
 function pick(key, value) {
 
-  /* Activity Filtering */
-
   if (key === 'activity') {
 
     return show(
@@ -1389,8 +1373,6 @@ function pick(key, value) {
     );
   }
 
-  /* Mood Filtering */
-
   if (key === 'mood') {
 
     return show(
@@ -1403,8 +1385,6 @@ function pick(key, value) {
       `No ${value.toLowerCase()} songs found in your catalog yet.`
     );
   }
-
-  /* Era Filtering */
 
   if (key === 'era') {
 
@@ -1430,8 +1410,6 @@ function pick(key, value) {
     );
   }
 
-  /* Language Filtering */
-
   if (key === 'lang') {
 
     return show(
@@ -1444,8 +1422,6 @@ function pick(key, value) {
       'No songs found for this language.'
     );
   }
-
-  /* Moment Filtering */
 
   if (key === 'moment') {
 
@@ -1468,8 +1444,6 @@ function pick(key, value) {
 
 document.addEventListener('click', e => {
 
-  /* Play button */
-
   const play = e.target.closest('.play-song');
 
   if (play) {
@@ -1482,8 +1456,6 @@ document.addEventListener('click', e => {
 
     return;
   }
-
-  /* Category card */
 
   const card = e.target.closest('[data-k]');
 
@@ -1636,7 +1608,7 @@ function toList(result) {
     $('#rBody').innerHTML = `
       <div class="msg error">
 
-        Cannot load songs from ${esc(API)}.
+        Cannot load songs from ${esc(API + EP.songs)}.
 
         Make sure your backend is running.
 
