@@ -1,3 +1,4 @@
+
 const express = require("express");
 const path = require("path");
 const pool = require("./db");
@@ -11,6 +12,21 @@ const app = express();
 
 // Middleware
 app.use(express.json());
+
+// Request Logging
+app.use((req, res, next) => {
+    const startTime = Date.now();
+
+    console.log(`[REQUEST] ${req.method} ${req.originalUrl}`);
+
+    res.on("finish", () => {
+        console.log(
+            `[RESPONSE] ${req.method} ${req.originalUrl} - ${res.statusCode} - ${Date.now() - startTime}ms`
+        );
+    });
+
+    next();
+});
 
 // Server Health Check (Database Independent)
 app.get("/health", (req, res) => {
