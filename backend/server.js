@@ -12,6 +12,11 @@ const app = express();
 // Middleware
 app.use(express.json());
 
+// Server Health Check (Database Independent)
+app.get("/health", (req, res) => {
+    res.status(200).send("Melody Bari Server OK!");
+});
+
 // Serve frontend files
 app.use(express.static(path.join(__dirname, "public")));
 
