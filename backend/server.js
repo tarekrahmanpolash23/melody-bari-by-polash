@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 const pool = require("./db");
 
 const songRoutes = require("./routes/songRoutes");
@@ -7,9 +8,12 @@ const favoriteRoutes = require("./routes/favoriteRoutes");
 const userRoutes = require("./routes/userRoutes");
 
 const app = express();
-app.use(express.static(require('path').join(__dirname, 'public')));
 
+// Middleware
 app.use(express.json());
+
+// Serve frontend files
+app.use(express.static(path.join(__dirname, "public")));
 
 // API Routes
 app.use(songRoutes);
@@ -44,7 +48,6 @@ app.use((req, res) => {
     });
 });
 
-
 // Global Error Handler
 app.use((error, req, res, next) => {
     console.error("Server Error:", error.message);
@@ -53,7 +56,6 @@ app.use((error, req, res, next) => {
         return next(error);
     }
 
-    // Invalid JSON error
     if (
         error instanceof SyntaxError &&
         error.status === 400 &&
@@ -65,18 +67,15 @@ app.use((error, req, res, next) => {
         });
     }
 
-    // Other errors
     res.status(500).json({
         success: false,
         message: "Internal server error!"
     });
 });
 
-
-
 // Start Server
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+app.listen(PORT, "0.0.0.0", () => {
+    console.log(`Server running on port ${PORT}`);
 });
